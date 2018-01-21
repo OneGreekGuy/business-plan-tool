@@ -21,6 +21,7 @@
   -ms-user-select: none;
   user-select: none;
   background-size: 10px 10px;
+  border: 1px dashed rgba(0,0,0,0);
   padding: 20px;
 }
 
@@ -156,7 +157,9 @@
   padding: 3px;
   border: 2px dashed transparent;
   text-align: center;
-  width: 130px;
+  min-width: 180px;
+  width: max-content;
+  max-width: 300px;
 }
 
 .orgchart.l2r .node, .orgchart.r2l .node {
@@ -358,7 +361,7 @@
   cursor: pointer;
   user-select: none;
   color: #fff;
-  background-color: #5cb85c;
+  background-color: rgb(41, 152, 88);
   border: 1px solid transparent;
   border-color: #4cae4c;
   border-radius: 4px;

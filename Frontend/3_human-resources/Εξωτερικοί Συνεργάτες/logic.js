@@ -11,10 +11,39 @@ var app = new Vue({
       save() {
         console.log('Οι εξωτερικοί συνεργάτες που αποθηκεύτηκαν είναι:')
         console.log(this.externalPartners)
+
+
+         for (var i=0 ; i < this.externalPartners.length; i++ ) {
+        
+      
+          axios.post('http://localhost:52800/api/Partner',{
+
+          ID: 1,
+          BusinessPlanId: 1,
+          Name: this.externalPartners[i].name,
+          SurName: this.externalPartners[i].surName,
+          Expertise: this.externalPartners[i].expertise,
+          LinkedIn: this.externalPartners[i].linkedIn,
+          From: this.externalPartners[i].from.replace('/','').replace('/',''),
+          Until: this.externalPartners[i].until.replace('/','').replace('/',''),
+          Duties: this.externalPartners[i].duties,
+
+          })
+           .then(function (response) {
+            console.log(response);
+          })
+           .catch(function (error) {
+            console.log(error);
+          });
+         }
+
+
+
       },
 
       showInstructions() {
         // Get the modal
+
       var modal = document.getElementById("myInstructions3");
 
       // Get the button that opens the modal

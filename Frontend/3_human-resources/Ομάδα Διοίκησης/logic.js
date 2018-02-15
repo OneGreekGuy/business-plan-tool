@@ -10,8 +10,31 @@ var app = new Vue({
       this.managers.push(newManager)
     },
     save() {
+      
+     for (var i=0 ; i < this.managers.length; i++ ) {
+     
+      
+     axios.post('http://localhost:52800/api/Manager',{
+         
+        ID: 1,
+        BusinessPlanId: 1,
+        Name: this.managers[i].name,
+        Surname: this.managers[i].surName,
+        Job: this.managers[i].job,
+        LinkedIn: this.managers[i].linkedIn,
+    
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
+
       console.log('Οι managers που αποθηκεύτηκαν είναι:')
       console.log(this.managers)
+    
     },
 
     showInstructions() {
